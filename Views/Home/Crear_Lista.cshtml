@@ -1,0 +1,16 @@
+﻿@model ListaAmigos;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Crear_Lista";
+}
+
+@section css{
+    <link href="~/css/Crear_Lista.css" rel="stylesheet" />
+}
+
+<form asp-controller="Home" asp-action="Crear_Lista" method="post">
+    <label asp-for="Nombre">Nombre de la nueva lista:</label>
+    <input asp-for="Nombre" type="text">
+    <button type="submit">Crear</button>
+</form>

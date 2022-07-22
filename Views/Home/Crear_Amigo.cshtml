@@ -1,0 +1,21 @@
+﻿@model Amigo;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Inicio";
+}
+
+@section css{
+    <link href="~/css/Crear_Amigo.css" rel="stylesheet" />
+}
+
+<form asp-controller="Home" asp-action="Crear_Amigo" method="post">
+    <label asp-for="Nombre">Nombre:</label>
+    <input type="text" asp-for="Nombre">
+    <label asp-for="NumeroTelefonico">Numero:</label>
+    <input type="text" asp-for="NumeroTelefonico">
+    <div class="botones">
+        <button class="boton boton_cancelar">Cancelar</button>
+        <button class="boton boton_crear">Crear</button>
+    </div>
+</form>

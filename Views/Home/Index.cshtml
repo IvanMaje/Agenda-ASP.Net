@@ -1,0 +1,40 @@
+﻿@model List<ListaAmigos>;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Inicio";
+}
+
+@section css{
+    <link href="~/css/Index.css" rel="stylesheet" />
+}
+
+<h1>Listas de contactos</h1>
+
+<article class="listas_de_contactos">
+
+    @foreach (ListaAmigos lista in Model)
+    {
+
+        <section>
+
+            <a  class="titulo_lista" asp-controller="Home" asp-action="Amigos_Listado" asp-route-listaAmigosId="@lista.Id"><h3>@lista.Nombre</h3></a>
+            <div class="botones">
+                <a class="boton boton_editar"  asp-controller="Home" asp-action="Editar_Lista" asp-route-Id="@lista.Id"><img src="img/editar.png" alt=""></a>
+                
+                <form method="post" asp-action="Borrar_Lista" asp-route-Id="@lista.Id">
+                    <button class="boton boton_borrar" type="submit"
+                            onclick="return confirm('¿Seguro que deseas eliminar esta lista?')">
+                        <img src="img/borrar.png" alt="">
+                    </button>
+                </form>
+
+            </div>
+
+        </section>
+
+    }
+
+</article>
+
+<a class="boton_crear_lista" asp-controller="Home" asp-action="Crear_Lista">Nueva Lista</a>

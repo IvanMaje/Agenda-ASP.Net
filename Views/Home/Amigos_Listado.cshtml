@@ -1,0 +1,30 @@
+﻿@model ListaAmigos;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Inicio";
+}
+
+@section css{
+    <link href="~/css/Amigos_Listados.css" rel="stylesheet" />
+}
+
+<a class="volver_inicio" asp-controller="Home" asp-action="Index"> < </a>
+
+<article>
+
+    @foreach (Amigo a in Model.amigos)
+    {
+        <section>
+            <span class="nombre">@a.Nombre</span>
+            <span class="numero_telefonico"> @a.NumeroTelefonico</span>
+            <div class="botones">
+                <a href="" class="boton boton_editar"><img src="img/editar.png" alt=""></a>
+                <a href="" class="boton boton_borrar"><img src="img/borrar.png" alt=""></a>
+            </div>
+        </section>
+    }
+
+    <a class="boton_nuevo" asp-controller="Home" asp-action="Crear_Amigo" asp-route-listaAmigosId="@Model.Id">Nuevo Amigo</a>
+
+</article>

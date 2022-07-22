@@ -1,0 +1,16 @@
+﻿@model ListaAmigos;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Inicio";
+}
+
+@section css{
+    <link href="~/css/Crear_Lista.css" rel="stylesheet" />
+}
+
+<form asp-controller="Home" asp-action="Editar_Lista" method="post">
+    <label asp-for="Nombre">Nombre de la nueva lista:</label>
+    <input asp-for="Nombre" value="@Model.Nombre">
+    <button type="submit">Editar</button>
+</form>
